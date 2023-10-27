@@ -1,0 +1,97 @@
+1. Introduction
+This API provides a Word Translation Service that allows users to retrieve translations for words in different languages. It supports multiple languages and follows RESTful design principles.
+
+2. Endpoints
+
+2.1 Retrieve Translations
+Endpoint: GET /translations
+
+Description: Retrieve translations for a given word and target language.
+
+Parameters:
+* word (string): The word to be translated.
+* target_language (string): The language to which you want to translate the word.
+
+Example Request:
+http
+GET /translations?word=hello&target_language=es
+
+Example Response:
+
+json
+{
+    "word": "hello",
+    "source_language": "en",
+    "target_language": "es",
+    "translation": "hola"
+}
+
+2.2 Add New Translations
+Endpoint: POST /translations
+
+Description: Add new translations to the database.
+
+Request Body:
+
+json
+{
+    "word": "hello",
+    "source_language": "en",
+    "target_language": "es",
+    "translation": "hola"
+}
+
+Example Response:
+
+json
+{
+    "message": "Translation added"
+}
+
+2.3 Update Existing Translations
+Endpoint: PUT /translations/{id}
+
+Description: Update existing translations.
+
+Request Body:
+
+json
+{
+    "translation": "nuevo hola"
+}
+Example Response:
+
+json
+{
+    "message": "Translation updated"
+}
+
+2.4 Delete Translations
+Endpoint: DELETE /translations/{id}
+
+Description: Delete translations.
+
+Example Request:
+
+http
+DELETE /translations/123
+Example Response: No content (204)
+
+3. Data Structures
+The API uses dictionaries to store translations in different languages. For example:
+
+python
+translations = {
+    'en': {'es': {}, 'fr': {}},
+    'es': {'en': {}, 'fr': {}},
+    'fr': {'en': {}, 'es': {}},
+}
+
+4. Usage
+To use the API, make HTTP requests to the provided endpoints. Ensure that the request parameters and request body (if applicable) are correctly formatted.
+
+5. Error Handling
+The API handles errors with appropriate HTTP status codes and error messages. For instance, a 400 status code is returned for invalid requests.
+
+6. Version History
+Version 1.0: Initial release.
