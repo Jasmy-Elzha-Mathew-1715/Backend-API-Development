@@ -93,5 +93,4 @@ To use the API, make HTTP requests to the provided endpoints. Ensure that the re
 5. Error Handling
 The API handles errors with appropriate HTTP status codes and error messages. For instance, a 400 status code is returned for invalid requests.
 
-6. Version History
-Version 1.0: Initial release.
+
